@@ -27,3 +27,4 @@ ufw allow 51820/udp
 
 
 reboot
+echo "restarting..."
