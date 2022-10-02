@@ -1,3 +1,5 @@
+apt update
+apt get wireguard
 mkdir /etc/wireguard
 cd /etc/wireguard
 umask 077
@@ -12,7 +14,7 @@ echo "[Interface]" > wg0.conf
 echo "Address = 10.1.1.1/24" >> wg0.conf
 echo "#SaveConfig = true" >> wg0.conf
 echo "PostUp = iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE" >> wg0.conf
-echo "PostUp = iptables -t nat -I PREROUTING -i eth0 -p udp -m multiport --dports 53,80,4444,11,51,123,443 -j REDIRECT --to-ports 51820" >> wg0.conf
+#echo "PostUp = iptables -t nat -I PREROUTING -i eth0 -p udp -m multiport --dports 53,80,4444,11,51,123,443 -j REDIRECT --to-ports 51820" >> wg0.conf
 echo "ListenPort = 51820" >> wg0.conf
 echo "PrivateKey = ${priv}" >> wg0.conf
 echo "" >> wg0.conf
