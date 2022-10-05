@@ -1,5 +1,5 @@
 apt update
-apt get wireguard
+apt install wireguard
 mkdir /etc/wireguard
 cd /etc/wireguard
 umask 077
